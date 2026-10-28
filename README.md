@@ -113,7 +113,8 @@ npm --prefix backend run bench -- --repo <repoId> --file benchmarks/requests.sam
 
 **Free-tier limits to know:**
 - Gemini embeddings: ~30k tokens/min. Indexing is paced by `EMBEDDING_TPM`/`EMBEDDING_RPM`, so a ~600 KB repo takes several minutes. Raise both on a paid key.
-- Redis Cloud free (30 MB) holds roughly 4–5k chunks at 768 dims. Lower `EMBEDDING_DIM` or upgrade for larger repos.
+- Redis Cloud free (30 MB) holds roughly 1,500–2,000 chunks at 768 dims (measured: psf/requests' 746 chunks used ~11 MB, about 15 KB per chunk including text and the full-text index). Lower `EMBEDDING_DIM` or upgrade for larger repos.
+- Run the API in the same region as Redis Cloud and Atlas: against a distant Redis, BM25 took 319 ms instead of 35 ms locally.
 
 ## Tests
 
