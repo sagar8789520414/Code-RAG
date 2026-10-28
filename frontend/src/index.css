@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgb(56 189 248 / 0.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgb(139 92 246 / 0.06), transparent 60%),
+    #020617;
+  color: #f1f5f9;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+
+::selection {
+  background: rgb(56 189 248 / 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+/* Answer typography: compact, readable markdown inside chat bubbles. */
+.prose-chat {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  overflow-wrap: anywhere;
+}
+.prose-chat > * + * {
+  margin-top: 0.75em;
+}
+.prose-chat hr {
+  border-color: #1e293b;
+  margin: 1.25em 0;
+}
+.prose-chat h2 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #1e293b;
+}
+.prose-chat h1,
+.prose-chat h2,
+.prose-chat h3,
+.prose-chat h4 {
+  margin-top: 1.25em;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.35;
+}
+.prose-chat h1 {
+  font-size: 1.15rem;
+}
+.prose-chat h2 {
+  font-size: 1.05rem;
+}
+.prose-chat h3,
+.prose-chat h4 {
+  font-size: 0.95rem;
+}
+.prose-chat ul,
+.prose-chat ol {
+  padding-left: 1.4em;
+}
+.prose-chat ul {
+  list-style: disc;
+}
+.prose-chat ol {
+  list-style: decimal;
+}
+.prose-chat li + li {
+  margin-top: 0.25em;
+}
+.prose-chat strong {
+  color: #f8fafc;
+}
+.prose-chat blockquote {
+  border-left: 3px solid #334155;
+  padding-left: 0.9em;
+  color: #94a3b8;
+}
+.prose-chat table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+.prose-chat th,
+.prose-chat td {
+  border: 1px solid #1e293b;
+  padding: 0.35em 0.6em;
+  text-align: left;
+}
+.prose-chat th {
+  background: #0f172a;
+}

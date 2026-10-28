@@ -1,0 +1,16 @@
+node_modules
+dist
+.env
+.env.local
+backend/.data
+.probe
+*.log
+legacy/node_modules
+legacy/.env
+legacy/uploads
+
+# Old PDF-RAG prototype (kept locally only; its .env holds real keys)
+legacy/
+# Local editor / agent tooling
+.vscode/
+.claude/

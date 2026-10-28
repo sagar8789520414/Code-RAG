@@ -1,0 +1,31 @@
+{
+  "repo": "psf/requests",
+  "description": "Retrieval ground truth for https://github.com/psf/requests (src/ layout). Each question lists the file + symbol a developer would need to read.",
+  "items": [
+    { "id": "send", "question": "How does a Session send a prepared request and follow redirects?", "expected": [{ "path": "src/requests/sessions.py", "symbol": "Session.send" }, { "path": "src/requests/sessions.py", "symbol": "SessionRedirectMixin.resolve_redirects" }] },
+    { "id": "env-settings", "question": "Where are environment proxy and CA bundle settings merged into the request settings?", "expected": [{ "path": "src/requests/sessions.py", "symbol": "Session.merge_environment_settings" }] },
+    { "id": "basic-auth", "question": "How is the HTTP Basic Authorization header built?", "expected": [{ "path": "src/requests/auth.py", "symbol": "_basic_auth_str" }, { "path": "src/requests/auth.py", "symbol": "HTTPBasicAuth" }] },
+    { "id": "digest", "question": "How does digest authentication compute the Authorization header from the server challenge?", "expected": [{ "path": "src/requests/auth.py", "symbol": "HTTPDigestAuth.build_digest_header" }] },
+    { "id": "adapter-send", "question": "Where does the transport adapter actually send the request through urllib3?", "expected": [{ "path": "src/requests/adapters.py", "symbol": "HTTPAdapter.send" }] },
+    { "id": "cert-verify", "question": "How are TLS certificate verification and client certificates configured on the connection?", "expected": [{ "path": "src/requests/adapters.py", "symbol": "HTTPAdapter.cert_verify" }] },
+    { "id": "poolmanager", "question": "How is the urllib3 connection pool manager initialised and how are retries configured?", "expected": [{ "path": "src/requests/adapters.py", "symbol": "HTTPAdapter.init_poolmanager" }, { "path": "src/requests/adapters.py", "symbol": "HTTPAdapter.__init__" }] },
+    { "id": "raise-for-status", "question": "How does raise_for_status decide whether to raise an HTTPError?", "expected": [{ "path": "src/requests/models.py", "symbol": "Response.raise_for_status" }] },
+    { "id": "json", "question": "How is a JSON response body decoded and what error is raised on invalid JSON?", "expected": [{ "path": "src/requests/models.py", "symbol": "Response.json" }] },
+    { "id": "multipart", "question": "How are files encoded into a multipart/form-data request body?", "expected": [{ "path": "src/requests/models.py", "symbol": "RequestEncodingMixin._encode_files" }] },
+    { "id": "prepare-body", "question": "How is the request body prepared for JSON, form data, and streaming uploads?", "expected": [{ "path": "src/requests/models.py", "symbol": "PreparedRequest.prepare_body" }] },
+    { "id": "prepare-url", "question": "How are URLs validated, IDNA-encoded and have params appended?", "expected": [{ "path": "src/requests/models.py", "symbol": "PreparedRequest.prepare_url" }] },
+    { "id": "iter-content", "question": "How does streaming download iterate over the response content in chunks?", "expected": [{ "path": "src/requests/models.py", "symbol": "Response.iter_content" }] },
+    { "id": "ci-dict", "question": "Where is the case-insensitive dictionary used for headers implemented?", "expected": [{ "path": "src/requests/structures.py", "symbol": "CaseInsensitiveDict" }] },
+    { "id": "cookies", "question": "How are cookies stored in a jar and created from a plain dict?", "expected": [{ "path": "src/requests/cookies.py", "symbol": "cookiejar_from_dict" }, { "path": "src/requests/cookies.py", "symbol": "RequestsCookieJar" }] },
+    { "id": "netrc", "question": "How are credentials read from a .netrc file?", "expected": [{ "path": "src/requests/utils.py", "symbol": "get_netrc_auth" }] },
+    { "id": "no-proxy", "question": "How does it decide whether a host should bypass the proxy using no_proxy?", "expected": [{ "path": "src/requests/utils.py", "symbol": "should_bypass_proxies" }] },
+    { "id": "timeouts", "question": "Which exceptions represent connect and read timeouts?", "expected": [{ "path": "src/requests/exceptions.py", "symbol": "ConnectTimeout" }, { "path": "src/requests/exceptions.py", "symbol": "ReadTimeout" }, { "path": "src/requests/exceptions.py", "symbol": "Timeout" }] },
+    { "id": "hooks", "question": "How are response hooks dispatched?", "expected": [{ "path": "src/requests/hooks.py", "symbol": "dispatch_hook" }] },
+    { "id": "api-get", "question": "What does requests.get do under the hood?", "expected": [{ "path": "src/requests/api.py", "symbol": "request" }, { "path": "src/requests/api.py", "symbol": "get" }] },
+    { "id": "rebuild-method", "question": "How is the HTTP method changed when following a 302 or 303 redirect?", "expected": [{ "path": "src/requests/sessions.py", "symbol": "SessionRedirectMixin.rebuild_method" }] },
+    { "id": "strip-auth", "question": "When are Authorization headers stripped on redirect to a different host?", "expected": [{ "path": "src/requests/sessions.py", "symbol": "SessionRedirectMixin.should_strip_auth" }, { "path": "src/requests/sessions.py", "symbol": "SessionRedirectMixin.rebuild_auth" }] },
+    { "id": "user-agent", "question": "How is the default User-Agent header generated?", "expected": [{ "path": "src/requests/utils.py", "symbol": "default_user_agent" }] },
+    { "id": "proxy-headers", "question": "How are Proxy-Authorization headers added when the proxy URL contains credentials?", "expected": [{ "path": "src/requests/adapters.py", "symbol": "HTTPAdapter.proxy_headers" }] },
+    { "id": "content-type-encoding", "question": "How is the text encoding derived from the Content-Type header?", "expected": [{ "path": "src/requests/utils.py", "symbol": "get_encoding_from_headers" }] }
+  ]
+}

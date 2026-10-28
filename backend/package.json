@@ -1,0 +1,42 @@
+{
+  "name": "code-rag-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Code RAG API: Tree-sitter AST chunking, git-diff incremental indexing, RediSearch hybrid search with RRF, and multi-hop agentic answering over Groq/Gemini.",
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "bench": "tsx src/scripts/bench.ts"
+  },
+  "dependencies": {
+    "@vscode/tree-sitter-wasm": "0.3.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "mongodb": "^7.7.0",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "redis": "^6.3.0",
+    "web-tree-sitter": "0.27.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.5",
+    "pino-pretty": "^13.2.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

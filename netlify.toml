@@ -1,0 +1,19 @@
+[build]
+  base = "frontend"
+  command = "npm ci && npm run build"
+  # VITE_API_URL (your Render URL) must be set in Netlify → Site settings → Environment variables.
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Client-side routing: serve index.html for every path.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,28 @@
+# Local infrastructure for development.
+#   docker compose up -d
+# Redis 8 ships the Query Engine (RediSearch: FT.* full-text + HNSW vectors) built in.
+services:
+  redis:
+    image: redis:8.2
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1000"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    profiles: ["mongo"] # opt-in: `docker compose --profile mongo up -d` if you don't run MongoDB natively
+
+volumes:
+  redis-data:
+  mongo-data:

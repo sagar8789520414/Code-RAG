@@ -1,0 +1,14 @@
+{
+  "name": "code-rag",
+  "private": true,
+  "description": "Code RAG platform: Tree-sitter AST chunking, git-diff incremental indexing, RediSearch hybrid BM25+HNSW search with RRF, and multi-hop Groq/Gemini agent.",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "test": "npm --prefix backend test",
+    "typecheck": "npm --prefix backend run typecheck && npm --prefix frontend run typecheck",
+    "infra:up": "docker compose up -d redis"
+  }
+}
