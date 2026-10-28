@@ -14,3 +14,6 @@ legacy/
 # Local editor / agent tooling
 .vscode/
 .claude/
+
+# Personal interview-prep report (kept local)
+CodeRAG_Project_Report.pdf
