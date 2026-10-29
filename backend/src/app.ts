@@ -17,16 +17,19 @@ export function createApp() {
   app.set("trust proxy", 1); // Render / Netlify sit behind one proxy hop
   app.disable("x-powered-by");
 
-  app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
   const allowAll = env.CORS_ORIGINS.includes("*");
   app.use(
     cors({
       origin: allowAll ? true : env.CORS_ORIGINS,
+      credentials: true,
       methods: ["GET", "POST", "DELETE", "OPTIONS"],
       allowedHeaders: ["Content-Type", "x-api-key"],
+      exposedHeaders: ["Content-Type"],
       maxAge: 86_400,
     }),
   );
+
+  app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
   app.use(
     pinoHttp({
       logger,
