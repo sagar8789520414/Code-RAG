@@ -6,6 +6,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  VITE_API_URL = "https://code-rag-1.onrender.com"
 
 # Client-side routing: serve index.html for every path.
 [[redirects]]
